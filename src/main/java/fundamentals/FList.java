@@ -8,13 +8,13 @@ import java.util.function.Predicate;
 
 /**
  * Author: Pierre Schaus
- *
+ * <p>
  * Functional Programming is an increasingly important programming paradigm.
  * In this programming paradigm, data structures are immutable.
  * We are interested here in the implementation of an immutable list
  * called FList allowing to be used in a functional framework.
  * Look at the main method for a small example using this functional list
- *
+ * <p>
  * Complete the implementation to pass the tests
  *
  * @param <A>
@@ -28,15 +28,15 @@ public abstract class FList<A> implements Iterable<A> {
             list = list.cons(i);
         }
 
-        list = list.map(i -> i+1);
+        list = list.map(i -> i + 1);
         // will print 10,9,...,1
-        for (Integer i: list) {
+        for (Integer i : list) {
             System.out.println(i);
         }
 
-        list = list.filter(i -> i%2 == 0);
+        list = list.filter(i -> i % 2 == 0);
         // will print 10,...,6,4,2
-        for (Integer i: list) {
+        for (Integer i : list) {
             System.out.println(i);
         }
     }
@@ -54,7 +54,8 @@ public abstract class FList<A> implements Iterable<A> {
     // return the length of the list
     public final int length() {
         // TODO
-         return -1;
+        if (isEmpty()) return 0;
+        return 1 + this.tail().length();
     }
 
     // return the head element of the list
@@ -74,15 +75,18 @@ public abstract class FList<A> implements Iterable<A> {
     }
 
     // return a list on which each element has been applied function f
-    public final <B> FList<B> map(Function<A,B> f) {
+    public final <B> FList<B> map(Function<A, B> f) {
         // TODO
-         return null;
+        if (this == Nil.INSTANCE) return nil();
+        return new Cons<B>(f.apply(head()), tail().map(f));
     }
 
     // return a list on which only the elements that satisfies predicate are kept
     public final FList<A> filter(Predicate<A> f) {
         // TODO
-         return null;;
+        if (this == Nil.INSTANCE) return nil();
+        if (f.test(head())) return new Cons<A>(head(), tail().filter(f));
+        return tail().filter(f);
     }
 
 
@@ -95,12 +99,15 @@ public abstract class FList<A> implements Iterable<A> {
 
             public boolean hasNext() {
                 // TODO
-                 return false;
+                return current.tail() != Nil.INSTANCE;
             }
 
             public A next() {
                 // TODO
-                 return null;
+                if (!hasNext()) throw new NoSuchElementException();
+                A retval = current.head();
+                current = current.tail();
+                return retval;
             }
 
             public void remove() {
@@ -116,13 +123,13 @@ public abstract class FList<A> implements Iterable<A> {
         @Override
         public A head() {
             // TODO
-             return null;
+            throw new IllegalArgumentException();
         }
 
         @Override
         public FList<A> tail() {
             // TODO
-             return null;
+            throw new IllegalArgumentException();
         }
     }
 
@@ -130,20 +137,25 @@ public abstract class FList<A> implements Iterable<A> {
 
         // TODO add instance variables
 
+        A head;
+
+        FList<A> tail;
 
         Cons(A a, FList<A> tail) {
+            head= a;
+            this.tail = tail;
         }
 
         @Override
         public A head() {
             // TODO
-             return null;
+            return head;
         }
 
         @Override
         public FList<A> tail() {
             // TODO
-             return null;
+            return tail;
         }
     }
 

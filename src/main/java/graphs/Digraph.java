@@ -49,6 +49,7 @@ public class Digraph {
      */
     public Digraph reverse() {
         // TODO
+        return null;
     }
 
 }

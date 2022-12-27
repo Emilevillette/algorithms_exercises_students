@@ -1,5 +1,6 @@
 package graphs;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Collections;
@@ -19,7 +20,7 @@ public class GlobalWarmingPaths {
     public List<Point> shortestPath(Point p1, Point p2) {
         // TODO
         // expected time complexity O(n^2)
-         return  return new ArrayList<Point>();
+         return new ArrayList<Point>();
 
     }
 
