@@ -6,8 +6,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import com.github.guillaumederval.javagrading.Grade;
 import com.github.guillaumederval.javagrading.GradeFeedback;
-import com.github.guillaumederval.javagrading.GradingRunnerWithParametersFactory;
-import org.junit.runners.Parameterized;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 

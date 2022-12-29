@@ -12,7 +12,6 @@ import org.junit.runner.RunWith;
 import java.util.Collection;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.File;
 import java.util.Scanner;
 import java.util.stream.Stream;

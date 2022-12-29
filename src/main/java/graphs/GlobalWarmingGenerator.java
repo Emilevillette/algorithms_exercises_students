@@ -4,7 +4,6 @@ import java.util.Random;
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 public class GlobalWarmingGenerator {
 

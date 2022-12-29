@@ -2,7 +2,6 @@ package sorting;
 
 import com.github.guillaumederval.javagrading.Grade;
 import org.junit.Test;
-import sorting.Median;
 
 import static org.junit.Assert.*;
 

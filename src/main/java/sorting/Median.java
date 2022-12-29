@@ -2,44 +2,44 @@ package sorting;
 
 /**
  * Author Pierre Schaus
- *
+ * <p>
  * We give you the API of a Vector class allowing to access,
  * modify and exchange two elements in constant time.
  * Your task is to implement a method to calculate the median of a Vector.
- *
+ * <p>
  * public interface Vector {
- *     // size of the vector
- *     public int size();
- *     // set the value v to the index i of the vector
- *     public void set(int i, int v);
- *     // returns the value at index i of the vector
- *     public int get(int i);
- *     // exchanges the values at positions i and j
- *     public void swap(int i, int j);
+ * // size of the vector
+ * public int size();
+ * // set the value v to the index i of the vector
+ * public void set(int i, int v);
+ * // returns the value at index i of the vector
+ * public int get(int i);
+ * // exchanges the values at positions i and j
+ * public void swap(int i, int j);
  * }
  * You must implement a method that has the following signature:
  * public static int median(Vector a, int lo, int hi)
- *
+ * <p>
  * This method calculates the median of vector "a" between the positions "lo" and "hi" (included).
  * You can consider that the vector "a" has always an odd size.
  * To help you, an IntelliJ project with a minimalist test to check if your code computes the right median value is given.
  * Indeed, it is not advised to debug your code via Inginious.
  * Warning It is not forbidden to modify or swap elements of the vector "a" during the calculation (with the get/set/swap methods).
  * It is forbidden to call other methods of the standard Java library. It is also forbidden to make a "new".
- *
+ * <p>
  * The evaluation is based on 10 points:
- *  - good return value: 3 points,
- *  - good return value and complexity O(n log n): 5 points,
- *  - good return value and complexity O(n) expected (average case on a random uniform distribution): 10 points.
- *
- *  All the code you write in the text field will be substituted in the place indicated below.
- *  You are free to implement other methods to help you in this class, but the method "median" given above must at least be included.
+ * - good return value: 3 points,
+ * - good return value and complexity O(n log n): 5 points,
+ * - good return value and complexity O(n) expected (average case on a random uniform distribution): 10 points.
+ * <p>
+ * All the code you write in the text field will be substituted in the place indicated below.
+ * You are free to implement other methods to help you in this class, but the method "median" given above must at least be included.
  */
 public class Median {
 
     public static class Vector {
 
-        private int [] array;
+        private int[] array;
         private int nOp = 0;
 
 
@@ -101,12 +101,34 @@ public class Median {
      * Returns the median value of the vector between two indices
      *
      * @param vec the vector
-     * @param lo the lowest index from which the median is computed
-     * @param hi the highest index from which the median is computed
+     * @param lo  the lowest index from which the median is computed
+     * @param hi  the highest index from which the median is computed
      */
     public static int median(Vector vec, int lo, int hi) {
         // TODO
-         return -1;
+        sort(vec, lo, hi);
+        return vec.get(lo + (hi-lo)/2);
+    }
+
+    private static Vector sort(Vector vec, int lo, int hi) {
+        if(hi <= lo) return vec;
+        int i = lo;
+        int j = hi+1;
+        int v = vec.get(lo);
+        while (true) {
+            while(vec.get(++i) < v) {
+                if(i == hi) break;
+            }
+            while(v < vec.get(--j)) {
+                if( j == lo) break;
+            }
+            if(i >= j) break;
+            vec.swap(i,j);
+        }
+        vec.swap(lo, j);
+        sort(vec, lo, j-1);
+        sort(vec, j+1, hi);
+        return vec;
     }
 
 }

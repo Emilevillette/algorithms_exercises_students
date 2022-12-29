@@ -3,7 +3,6 @@ package sorting;
 import org.junit.Test;
 
 import com.github.guillaumederval.javagrading.Grade;
-import sorting.MinPQLinked;
 
 import java.util.Comparator;
 

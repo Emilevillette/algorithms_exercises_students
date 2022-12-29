@@ -1,11 +1,10 @@
 package sorting;
 
 import java.util.Random;
-import java.lang.Math;
 import java.io.PrintWriter;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
+
 public class ClosestPairGenerator {
 
     public static void main(String [] args) {

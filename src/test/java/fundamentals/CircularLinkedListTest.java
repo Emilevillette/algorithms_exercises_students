@@ -2,7 +2,6 @@ package fundamentals;
 
 
 import com.github.guillaumederval.javagrading.Grade;
-import com.github.guillaumederval.javagrading.GradeFeedback;
 import com.github.guillaumederval.javagrading.GradingRunnerWithParametersFactory;
 import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
@@ -11,7 +10,6 @@ import org.junit.runners.Parameterized;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.function.Supplier;
 
 import static org.junit.Assert.*;
 

@@ -1,7 +1,5 @@
 package graphs;
 
-import graphs.GalaxyPath;
-
 import java.io.*;
 import java.util.*;
 

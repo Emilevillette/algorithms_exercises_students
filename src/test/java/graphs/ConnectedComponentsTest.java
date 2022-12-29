@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
-import com.github.guillaumederval.javagrading.Grade;
 
 @RunWith(Enclosed.class)
 public class ConnectedComponentsTest {

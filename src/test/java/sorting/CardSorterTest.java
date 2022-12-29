@@ -2,11 +2,8 @@ package sorting;
 
 
 import com.github.guillaumederval.javagrading.Grade;
-import com.github.guillaumederval.javagrading.GradeFeedback;
-import com.github.guillaumederval.javagrading.GradeFeedbacks;
 import com.github.guillaumederval.javagrading.GradingRunner;
 import com.github.guillaumederval.javagrading.CustomGradingResult;
-import com.github.guillaumederval.javagrading.TestStatus;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

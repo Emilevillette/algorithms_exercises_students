@@ -1,7 +1,5 @@
 package sorting;
 
-import java.util.Arrays;
-
 /**
  * Author Pierre Schaus
  *

@@ -1,8 +1,6 @@
 package searching;
 
-import java.util.ConcurrentModificationException;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 /**
  * In this exercise, we are interested in implementing an iterator (BSTIterator) for a Binary Search Tree (BST).
@@ -91,6 +89,21 @@ public class BinarySearchTreeIterator<Key extends Comparable<Key>> implements It
         return node;
     }
 
+    public void queue_inorder_traversal(Queue<Key> queue, BSTNode<Key> node) {
+        if (node.getLeft() == null && node.getRight() == null) {
+            queue.add(node.getKey());
+            return;
+        }
+        if (node.getLeft() != null) {
+            queue_inorder_traversal(queue, node.getLeft());
+        }
+        queue.add(node.getKey());
+        if (node.getRight() != null) {
+            queue_inorder_traversal(queue, node.getRight());
+        }
+
+    }
+
     @Override
     public Iterator<Key> iterator() {
         return new BSTIterator();
@@ -98,14 +111,29 @@ public class BinarySearchTreeIterator<Key extends Comparable<Key>> implements It
 
     private class BSTIterator implements Iterator<Key> {
 
+        Queue<Key> queue;
+        int size;
+        int pos;
+
+        public BSTIterator() {
+            this.size = size();
+            this.pos = 0;
+            queue = new LinkedList<Key>();
+            if(size != 0) {
+                queue_inorder_traversal(queue, root);
+            }
+        }
+
         @Override
         public boolean hasNext() {
-            return false;
+            return this.pos < this.size;
         }
 
         @Override
         public Key next() {
-            return null;
+
+            this.pos++;
+            return queue.remove();
         }
     }
 
