@@ -1,5 +1,6 @@
 package searching;
 
+
 /**
  * In this exercise, you'll need to implement a class that convert a 2-3 tree into a red black tree.
  * You'll receive as an input a 2-3 tree and you'll need to return the equivalent red black tree.
@@ -12,9 +13,9 @@ package searching;
  *                                        --------------------
  *                                        |                  |
  *                                     |3,7|              |12,15|
- *                                       |                  |  
+ *                                       |                  |
  *                                 ------------      ---------------
- *                                 |     |    |      |       |     | 
+ *                                 |     |    |      |       |     |
  *                              |1,_| |5,_| |8,_|  |11,_| |13,_| |17,_|
  *
  *
@@ -25,7 +26,7 @@ package searching;
  *                                       ----------------
  *                                       |              |
  *                                  3----7        12----15   (red links !)
- *                                  |    |        |     |    
+ *                                  |    |        |     |
  *                                ---- ----     ----  ----
  *                                |  | |  |     |  |  |  |
  *                                1  5    8    11 13     17
@@ -41,10 +42,10 @@ public class RedBlackTreeConverter {
      * @param twoThreeNode the root of the 2-3 tree
      * @return a RBNode which is the root of the equivalent RedBlackTRee
      */
-    public static<Key extends Comparable<Key>> RBNode<Key> convert(TwoThreeNode<Key> twoThreeNode) {
-         return null;
+    public static <Key extends Comparable<Key>> RBNode<Key> convert(TwoThreeNode<Key> twoThreeNode) {
+        return null;
     }
-    
+
     public static enum Color {
         Red,
         Black
@@ -105,7 +106,7 @@ public class RedBlackTreeConverter {
             this.rightValue = rightValue;
         }
 
-        
+
         /**
          * Returns true if and only if the node is a 2-node. A 2-node only has two children
          * that are located at `leftChild` (key smaller than `leftKey`) and `centerChild` (key
@@ -136,7 +137,8 @@ public class RedBlackTreeConverter {
     /**
      * Returns the size of `node` and 0 if `node` is null
      */
-    private static<Key extends Comparable<Key>> int sizeEvenIfNull(RBNode<Key> node) {
+    private static <Key extends Comparable<Key>> int sizeEvenIfNull(RBNode<Key> node) {
         return node == null ? 0 : node.size;
     }
 }
+
